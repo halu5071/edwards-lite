@@ -86,6 +86,10 @@ public class Group {
         return new EncodedGroup(reversedY);
     }
 
+    public boolean isEqual(Group group) {
+        return x.isEqual(group.getX()) && y.isEqual(group.getY());
+    }
+
     public Field getX() {
         return x;
     }

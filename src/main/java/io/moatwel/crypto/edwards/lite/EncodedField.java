@@ -10,6 +10,10 @@ public class EncodedField {
         this.value = value;
     }
 
+    public byte[] getValue() {
+        return value;
+    }
+
     public Field decode() {
         byte[] seed = ByteUtils.reverse(this.value);
         return new Field(new BigInteger(1, seed));

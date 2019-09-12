@@ -57,4 +57,8 @@ public class Field {
         byte[] seed = ByteUtils.reverse(ArrayUtils.toByteArray(value, 32));
         return new EncodedField(seed);
     }
+
+    public boolean isEqual(Field field) {
+        return value.compareTo(field.value) == 0;
+    }
 }

@@ -27,6 +27,10 @@ public class EncodedGroup {
         return new Group(x, y);
     }
 
+    public byte[] getValue() {
+        return value;
+    }
+
     private Field recoverY(byte[] source) throws DecodeException {
         source[source.length - 1] &= 0x7F;
         BigInteger ySeed = new BigInteger(ByteUtils.reverse(source));
