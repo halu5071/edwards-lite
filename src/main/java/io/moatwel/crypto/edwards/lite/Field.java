@@ -19,25 +19,25 @@ public class Field {
         return new Field(value.add(integer));
     }
 
-    public final Field divide(Field val) {
+    public Field divide(Field val) {
         return new Field(value.divide(val.getInteger()));
     }
 
-    public final Field multiply(Field val) {
+    public Field multiply(Field val) {
         BigInteger integer = val.getInteger();
         return new Field(value.multiply(integer));
     }
 
-    public final Field subtract(Field val) {
+    public Field subtract(Field val) {
         BigInteger integer = val.getInteger();
         return new Field(value.subtract(integer));
     }
 
-    public final Field mod() {
+    public Field mod() {
         return new Field(getInteger().mod(curve.getPrimePowerP()));
     }
 
-    public final Field inverse() {
+    public Field inverse() {
         return new Field(getInteger().modInverse(curve.getPrimePowerP()));
     }
 

@@ -48,20 +48,19 @@ public class Group {
 
     public Group scalarMultiply(BigInteger integer) {
         if (integer.equals(BigInteger.ZERO)) {
-            return Group.O;
+            return O;
         }
 
-        Group[] qs = new Group[]{O, O};
-        Group[] rs = new Group[]{this, this, negateY()};
+        Group result = this;
+        int[] bin = ArrayUtils.toBinaryArray(integer);
 
-        int[] signedBin = ArrayUtils.toMutualOppositeForm(integer);
-
-        for (int aSignedBin : signedBin) {
-            qs[0] = qs[0].add(qs[0]);
-            qs[1] = (qs[0].add(rs[1 - aSignedBin])).negate();
-            qs[0] = qs[(aSignedBin ^ (aSignedBin >> 31)) - (aSignedBin >> 31)];
+        for (int i = 1; i < bin.length; i++) {
+            result = result.add(result);
+            if (bin[i] == 1) {
+                result = result.add(this);
+            }
         }
-        return qs[0];
+        return result;
     }
 
     public Group negateY() {
@@ -96,9 +95,5 @@ public class Group {
 
     public Field getY() {
         return y;
-    }
-
-    private Group negate() {
-        return new Group(x.negate(), y.negate());
     }
 }
