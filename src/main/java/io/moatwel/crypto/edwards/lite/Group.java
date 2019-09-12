@@ -52,11 +52,11 @@ public class Group {
         }
 
         Group result = this;
-        int[] bin = ArrayUtils.toBinaryArray(integer);
+        int[] binArray = ArrayUtils.toBinaryArray(integer);
 
-        for (int i = 1; i < bin.length; i++) {
+        for (int bin: binArray) {
             result = result.add(result);
-            if (bin[i] == 1) {
+            if (bin == 1) {
                 result = result.add(this);
             }
         }
