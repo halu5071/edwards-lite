@@ -24,7 +24,7 @@ public class EncodedGroup {
 
     Field x = recoverX(y, x0);
 
-    return new Group(x, y);
+    return Group.fromAffine(x, y);
   }
 
   public byte[] getValue() {

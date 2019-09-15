@@ -17,7 +17,7 @@ public class Curve25519 {
   public final Group getBasePoint() {
     Field x = new Field(new BigInteger("15112221349535400772501151409588531511454012693041857206046113283949847762202"));
     Field y = new Field(new BigInteger("46316835694926478169428394003475163141307993866256225615783033603165251855960"));
-    return new Group(x, y);
+    return Group.fromAffine(x, y);
   }
 
   public final BigInteger getPrimeL() {
