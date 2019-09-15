@@ -1,3 +1,4 @@
 rootProject.name = 'edwards-lite'
 include 'benchmark'
+include 'benchmark'
 

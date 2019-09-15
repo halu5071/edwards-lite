@@ -8,7 +8,7 @@ public class Field {
   private static final Curve25519 curve = Curve25519.getInstance();
   private BigInteger value;
 
-  Field(BigInteger integer) {
+  public Field(BigInteger integer) {
     this.value = integer;
   }
 
