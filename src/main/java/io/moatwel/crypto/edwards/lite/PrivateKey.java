@@ -41,18 +41,6 @@ public class PrivateKey {
         return HexEncoder.getString(this.value);
     }
 
-    public BigInteger getScalarSeed(HashAlgorithm hashAlgorithm) {
-        byte[] hashResult = Hashes.hash(hashAlgorithm, value);
-        byte[] first32 = ByteUtils.split(hashResult, 32)[0];
-
-        first32[0] &= 0xF8;
-        first32[31] &= 0x7F;
-        first32[31] |= 0x40;
-
-        byte[] a = ByteUtils.reverse(first32);
-        return new BigInteger(a);
-    }
-
     @Override
     public int hashCode() {
         return Arrays.hashCode(this.value);
