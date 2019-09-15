@@ -54,9 +54,9 @@ public class Group {
         Group result = this;
         int[] binArray = ArrayUtils.toBinaryArray(integer);
 
-        for (int bin: binArray) {
+        for (int i = 1; i < binArray.length; i++) {
             result = result.add(result);
-            if (bin == 1) {
+            if (binArray[i] == 1) {
                 result = result.add(this);
             }
         }
