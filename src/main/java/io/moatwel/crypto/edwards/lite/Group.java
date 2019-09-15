@@ -51,16 +51,16 @@ public class Group {
       return O;
     }
 
-    Group result = this;
+    Group[] groups = new Group[2];
+    groups[0] = this;
     int[] binArray = ArrayUtils.toBinaryArray(integer);
 
     for (int i = 1; i < binArray.length; i++) {
-      result = result.add(result);
-      if (binArray[i] == 1) {
-        result = result.add(this);
-      }
+      groups[0] = groups[0].add(groups[0]);
+      groups[1] = groups[0].add(this);
+      groups[0] = groups[binArray[i]];
     }
-    return result;
+    return groups[0];
   }
 
   public Group negateY() {
